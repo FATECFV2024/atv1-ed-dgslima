@@ -9,7 +9,7 @@ import java.io.PrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.App;
+import main.java.App;
 
 public class AppTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
