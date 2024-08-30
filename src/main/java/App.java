@@ -1,4 +1,3 @@
-package main;
 import java.util.Scanner;
 
 public class App {
@@ -24,7 +23,7 @@ public class App {
                 opcao = scanner.nextInt();
             } else {
                 System.out.println("Por favor, insira um número válido.");
-                scanner.nextLine(); 
+                scanner.nextLine(); // Limpa o buffer do scanner
                 continue;
             }
     
@@ -66,7 +65,28 @@ public class App {
     public static void Ex1(Scanner scanner) {
        
 
-        
+        int[] N = new int[10];
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (<= 20): ");
+            value = scanner.nextInt();
+        } while (value > 20);
+
+        // Armazenamento do valor na primeira posição do vetor
+        N[0] = value;
+
+        // Processamento para calcular os valores do vetor
+        for (int i = 1; i < N.length; i++) {
+            N[i] = N[i - 1] * 2;
+        }
+
+        // Saída dos valores do vetor
+        System.out.println("Valores do vetor N:");
+        for (int num : N) {
+            System.out.print(num + " ");
+        }
 
    
     }
@@ -75,7 +95,28 @@ public class App {
 
         
 
-        
+        int[] N = new int[10];
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (entre 2 e 99): ");
+            value = scanner.nextInt();
+        } while (value <= 1 || value >= 100);
+
+        // Armazenamento do valor na primeira posição do vetor
+        N[0] = value;
+
+        // Processamento para preencher as posições subsequentes do vetor
+        for (int i = 1; i < N.length; i++) {
+            N[i] = N[i - 1] - 1;
+        }
+
+        // Saída dos valores do vetor
+        System.out.println("Valores do vetor N:");
+        for (int num : N) {
+            System.out.print(num + " ");
+        }
 
 
     }
@@ -83,20 +124,87 @@ public class App {
     public static void Ex3(Scanner scanner) {
    
 
-       
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (entre 2 e 1000): ");
+            value = scanner.nextInt();
+        } while (value <= 1 || value > 1000);
+
+        // Criação e preenchimento do vetor
+        int[] N = new int[value];
+        for (int i = 0; i < N.length; i++) {
+            N[i] = i + 1;
+        }
+
+        // Saída dos valores do vetor
+        System.out.println("Valores do vetor N:");
+        for (int num : N) {
+            System.out.print(num + " ");
+        }
+
 
     }
 
     public static void Ex4(Scanner scanner) {
        
-        
+        int[] N = new int[10];
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (entre 2 e 99): ");
+            value = scanner.nextInt();
+        } while (value <= 1 || value >= 100);
+
+        // Armazenamento do valor na primeira posição do vetor
+        N[0] = value;
+
+        // Preenchimento das posições subsequentes do vetor e cálculo da somatória
+        int soma = value;
+        for (int i = 1; i < N.length; i++) {
+            N[i] = N[i - 1] + 1;
+            soma += N[i];
+        }
+
+        // Saída dos valores do vetor e da somatória
+        System.out.println("Valores do vetor N:");
+        for (int num : N) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nTotal da somatória dos valores: " + soma);
+
     
     }
 
     public static void Ex5(Scanner scanner) {
        
 
-       
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (entre 2 e 50): ");
+            value = scanner.nextInt();
+        } while (value <= 1 || value > 50);
+
+        // Criação e preenchimento da matriz
+        int[][] N = new int[value][value];
+        for (int i = 0; i < N.length; i++) {
+            for (int j = 0; j < N[i].length; j++) {
+                N[i][j] = i + j;
+            }
+        }
+
+        // Saída dos valores da matriz
+        System.out.println("Valores da matriz N:");
+        for (int i = 0; i < N.length; i++) {
+            for (int j = 0; j < N[i].length; j++) {
+                System.out.print(N[i][j] + " ");
+            }
+            System.out.println();
+        }
 
     
     
@@ -105,7 +213,30 @@ public class App {
     public static void Ex6(Scanner scanner) {
    
 
-       
+        int value;
+
+        // Entrada e validação do valor
+        do {
+            System.out.print("Digite um valor inteiro (entre 4 e 50): ");
+            value = scanner.nextInt();
+        } while (value <= 3 || value > 50);
+
+        // Criação e preenchimento das matrizes N e Z
+        int[][] N = new int[value][value];
+        int[][] Z = new int[value][value];
+        preencherMatriz(N);
+        preencherMatriz(Z);
+
+        // Criação e preenchimento da matriz de soma
+        int[][] soma = somarMatrizes(N, Z);
+
+        // Saída dos valores das matrizes
+        System.out.println("Valores da matriz N:");
+        exibirMatriz(N);
+        System.out.println("Valores da matriz Z:");
+        exibirMatriz(Z);
+        System.out.println("Valores da matriz de soma:");
+        exibirMatriz(soma);
 
 
     }
